@@ -1,0 +1,105 @@
+body {
+    background: linear-gradient(120deg, #924904, #7a0fa8);
+    color: black;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    width: 80%;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.heading {
+    margin-bottom: 10px;
+    color: black;
+    border-bottom: 3px solid silver;
+    width: 90%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.timer,
+.errors,
+.accuracy,
+.cpm,
+.wpm {
+    background-color: #cf8e51;
+    height: 60px;
+    width: 70px;
+    margin: 8px;
+    padding: 12px;
+    border-radius: 20%;
+    box-shadow: silver 5px 8px 5px;
+}
+
+.result {
+    display: flex;
+}
+
+.cpm,
+.wpm,
+.errors,
+.accuracy {
+    display: none;
+}
+
+.header_text {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.curr_time,
+.curr_errors,
+.curr_accuracy,
+.curr_cpm,
+.curr_wpm {
+    font-size: 2.75rem;
+}
+
+.quote {
+    background-color: goldenrod;
+    width: 80%;
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 25px;
+    box-shadow: silver 5px 8px 5px;
+}
+
+.input_area {
+    background-color: gold;
+    height: 80px;
+    width: 85%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 15px;
+    padding: 20px;
+    border: 0px;
+    box-shadow: silver 5px 8px 5px;
+}
+
+.restart_btn {
+    display: none;
+    background-color: #326765;
+    font-size: 1.5rem;
+    padding: 10px;
+    box-shadow: silver 5px 8px 5px;
+}
+
+.incorrect_char {
+    color: red;
+    text-decoration: underline;
+}
+
+.correct_char {
+    color: darkgreen;
+}

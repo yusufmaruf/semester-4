@@ -1,0 +1,194 @@
+/* ... pengaturan pada body dengan height 100 dan bg bisque ... */
+
+body {
+    background-color: bisque;
+    color: black;
+    text-align: center;
+    height: 100%;
+}
+
+
+/* ... pengaturan pada id bahasa dengan ukuran lebar 100px dan ukuran font 15px ... */
+
+#bahasa {
+    width: 100px;
+    font-size: 15px;
+}
+
+
+/* ... pengaturan kontainer dengan menggunakan konsep flex dan margin kanan kiri 20px serta atas bawah yang auto ... */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: auto;
+    width: 60%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 80px rgb(156, 138, 138);
+    margin: 20px auto;
+}
+
+
+/* ... pengaturan pada class heading ... */
+
+.heading {
+    font-size: 3rem;
+    color: black;
+}
+
+
+/* ... pengaturan pada class keterangan... */
+
+.keterangan {
+    font-size: 1.5 rem;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-bottom: 2px solid silver;
+    width: 90%;
+}
+
+
+/* ... pengaturan pada class header... */
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ... pengaturan pada class timer, errors, accuracy, cpm, dan wpm... */
+
+.timer,
+.errors,
+.accuracy,
+.cpm,
+.wpm {
+    background-color: peachpuff;
+    height: 60px;
+    width: 70px;
+    margin: 8px;
+    padding: 12px;
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px silver;
+    margin-bottom: 40px;
+}
+
+
+/* ... pengaturan pada class errors, accuracy, cpm, dan wpm... */
+
+
+/* ... dimana kelas tersebut akan disembunyikan di tampilan awal... */
+
+.cpm,
+.wpm,
+.accuracy,
+.errors {
+    display: none;
+}
+
+
+/* ... pengaturan pada class header text... */
+
+.header_text {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 600;
+}
+
+
+/* ... pengaturan pada class timer, errors, accuracy, cpm, dan wpm... */
+
+.curr_time,
+.curr_errors,
+.curr_accuracy,
+.curr_cpm,
+.curr_wpm {
+    font-size: 2.75rem;
+}
+
+
+/* ... pengaturan pada class quote... */
+
+.quote {
+    background-color: beige;
+    font-size: 1.5rem;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px silver;
+    width: 85%;
+    border-radius: 5px;
+}
+
+
+/* ... pengaturan pada id hasilmu... */
+
+#hasilmu {
+    font-size: 20px;
+    width: 80%;
+    display: none;
+}
+
+
+/* ... pengaturan pada class input area... */
+
+.input_area {
+    background-color: blanchedalmond;
+    height: 80px;
+    width: 90%;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 15px;
+    padding: 20px;
+    border: 0px;
+    box-shadow: 10px 10px 5px silver;
+    margin: 20px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+}
+
+
+/* ... pengaturan pada class incorrect char... */
+
+.incorrect_char {
+    color: red;
+    text-decoration: underline;
+}
+
+
+/* ... pengaturan pada class correct char... */
+
+.correct_char {
+    color: darkgreen;
+}
+
+
+/* ... pengaturan pada class restart btn.. */
+
+.restart_btn {
+    display: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 0px;
+    width: 80%;
+    box-shadow: 10px 10px 5px silver;
+    margin-bottom: 20px;
+}
+
+
+/* ... pengaturan pada class result.. */
+
+.result {
+    display: flex;
+}
+
+
+/* ... pengaturan responsive.. */
+
+@media (max-width: 800px) {
+    .result {
+        flex-direction: column;
+    }
+}

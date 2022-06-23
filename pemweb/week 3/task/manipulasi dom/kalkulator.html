@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Conveter Nilai</title>
+    <link rel="stylesheet" href="/css/calc.css">
+</head>
+
+<body>
+
+    <div class="center">
+        <h1>Kalkulator Sederhana</h1>
+        <form method="post" name="kirim">
+            <div class="field">
+                <label> Bilangan Pertama : </label>
+                <input type="text" name="text1">
+            </div>
+            <div class="field">
+                <label> Bilangan Kedua : </label>
+                <input type="text" name="text2">
+            </div>
+            <div class="field">
+                <label> Hasil : </label>
+                <input type="text" name="hasil" disabled>
+            </div>
+            <div class="tombol">
+                <input type="button" value="+" name="plus" onclick=oplus()>
+                <input type="button" value="-" name="minus" onclick=ominus()>
+                <input type="button" value="X" name="kali" onclick=okali()>
+                <input type="button" value="/" name="bagi" onclick=obagi()>
+            </div>
+            <p id="p1"></p>
+        </form>
+
+    </div>
+    <footer>
+        <h4> &copy; Copyright ALMAR</h3>
+    </footer>
+    <script src="/js/calc.js"></script>
+</body>
+
+</html>

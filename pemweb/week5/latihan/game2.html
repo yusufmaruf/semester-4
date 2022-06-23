@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+    <!--Style pada css-->
+    <style>
+        /* pengaturan padding dan margin untuk semua komponen html */
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /* pengaturan padding dan margin dan bakground untuk semua komponen html */
+        
+        canvas {
+            background: url("Background1.png");
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Pembuatan elemn kanvas-->
+    <canvas id="myCanvas" width="500" height="350"></canvas>
+    <script>
+        //pemberian nilai canvas dengan penyeleskian dom dari id my canvas
+        var canvas = document.getElementById('myCanvas');
+        //membberikan akses pada canvas untuk menggambar 2d
+        var context = canvas.getContext('2d');
+        var speed = 10; //dekrarasi variabel speed
+        var gameSpeed = 1; //deklarasi game speed
+        //pembuatan variabel me dengan type array sebagai objek utama
+        var me = {
+            x: canvas.width / 2 - 5,
+            y: canvas.height / 2 - 5,
+            width: 10,
+            height: 10
+        }
+
+        var bullets = []; //deklarasi variable bullets
+        var wallLength = 200; //deklarasi variable length untuk anjang dinding rintang
+        //pembuatan obyek wall dengan variablewalls bertipe array
+        var walls = {
+            //pembuatan walls sebelah kiri
+            'left': {
+                x: 10,
+                y: canvas.height / 2 - wallLength / 2,
+                width: 10,
+                height: wallLength,
+                'pos': 'left'
+            },
+            //pembuatan walls sebelah kanan
+            'right': {
+                x: canvas.width - 20,
+                y: canvas.height / 2 - wallLength / 2,
+                width: 10,
+                height: wallLength,
+                'pos': 'right'
+            },
+            //pembuatan walls sebelah atas
+            'top': {
+                x: canvas.width / 2 - wallLength,
+                y: 10,
+                width: wallLength * 2,
+                height: 10,
+                'pos': 'top'
+            },
+            //pembuatan walls sebelah bawah
+            'bottom': {
+
+                x: canvas.width / 2 - wallLength,
+                y: canvas.height - 20,
+                width: wallLength * 2,
+                height: 10,
+                'pos': 'bottom'
+            },
+        };
+        //deklarasi dan inisialisasi gravitasi me
+        var gravity = 0.2;
+        //deklarasi dan inisialisasi pantulan
+        var bounce = 4;
+        //deklarasi dan inisialisasi jarak
+        var distance = 70;
+        var dir = '';
+        //pengaturan aksi ketika user menekan sebuah tombol
+        document.onkeyup = function(e) {
+                if (!e) {
+                    e = window.e;
+                }
+                var code = e.keyCode;
+                if (e.charCode && codee == 0) {
+                    code = e.charCode;
+                }
+                //pengecekan inputan user
+                switch (code) {
+                    //ketika menekan arrow kiri
+                    case 37:
+                        if (dir != 'left')
+                            dir = 'left';
+                        //pengaturan dindig ketika terkena bullet maka akan bergeser 10px ke kakiri
+                        bullets.push({
+                            x: me.x,
+                            y: me.y,
+                            width: 10,
+                            height: 10,
+                            dir: dir
+                        });
+                        break;
+                        //ketika menekan arrow bawah
+                    case 40:
+                        if (dir != 'down')
+                            dir = 'down';
+                        //pengaturan dindig ketika terkena bullet maka akan bergeser 10px ke kabawah
+                        bullets.push({
+                            x: me.x,
+                            y: me.y,
+                            width: 10,
+                            height: 10,
+                            dir: dir
+                        });
+                        break;
+                        //ketika menekan arrow kanan
+                    case 39:
+                        if (dir != 'right')
+                            dir = 'right';
+                        //pengaturan dindig ketika terkena bullet maka akan bergeser 10px ke kanan
+                        bullets.push({
+                            x: me.x,
+                            y: me.y,
+                            width: 10,
+                            height: 10,
+                            dir: dir
+                        });
+                        break;
+                        //ketika menekan arrow atas
+                    case 38:
+                        if (dir != 'up')
+                            dir = 'up';
+                        //pengaturan dindig ketika terkena bullet maka akan bergeser 10px ke kaatas
+                        bullets.push({
+                            x: me.x,
+                            y: me.y,
+                            width: 10,
+                            height: 10,
+                            dir: dir
+                        });
+                        break;
+                }
+            }
+            //deklarasi dan inisialisasi wallspeed
+        var wallSpeed = 0.2;
+        //deklarasi dan inisialisasi wallet backward (digunakan untuk bullet ketika terkena dinding)
+        var walletBackward = 20;
+        //deklarasi dan inisialisasi score
+        var score = 0;
+        //pembuatan walls
+        function makeWalls() {
+            //looping untuk dinding tetep bergerak
+            for (var index in walls) {
+                var wall = walls[index];
+                context.beginPath(); //pemanggilan fungsi begin path untukmemulai
+                context.rect(wall.x, wall.y, wall.width, wall.height); //inisialisasi ukuran dinding
+                context.fillStyle = "blue"; //inisialisasi warna dinding
+                context.fill(); //pemberian warna pada dinding
+                context.closePath(); //pengembalian pada titik awal
+                if (wall.pos == 'left') {
+                    wall.x += wallSpeed;
+                    //pengecekan apakah me tersentuh dinding jika iya maka akan menampilkan score
+                    if ((wall.x + wall.width) >= me.x) {
+                        loose();
+                    }
+                }
+                if (wall.pos == 'right') {
+                    wall.x -= wallSpeed;
+                    //pengecekan apakah me tersentuh dinding jika iya maka akan menampilkan score
+                    if ((wall.x + wall.width) <= me.x) {
+                        loose();
+                    }
+                }
+                if (wall.pos == 'top') {
+                    wall.y += wallSpeed;
+                    //pengecekan apakah me tersentuh dinding jika iya maka akan menampilkan score
+                    if ((wall.y + wall.height) >= me.y) {
+                        loose();
+                    }
+                }
+                if (wall.pos == 'bottom') {
+                    wall.y -= wallSpeed;
+                    //pengecekan apakah me tersentuh dinding jika iya maka akan menampilkan score
+                    if ((wall.y + wall.height) <= me.y) {
+                        loose();
+                    }
+                }
+
+                console.log(walls[wall]) //menampilkan wall pada kanvas
+
+
+            }
+        }
+        //fungsi ketika game berakhir maka akan menampilkan alert score
+        function loose() {
+            alert('You Lose! score : ' + score);
+        }
+        var collid = false;
+
+        function makeBullet() {
+            for (bullet of bullets) {
+                context.beginPath(); //mulai
+                context.rect(bullet.x, bullet.y, bullet.width, bullet.height); //seting ukuran peluru
+                context.fillStyle = "red"; //pemberian warna red
+                context.fill(); //pengisian warna
+                context.closePath(); //pengembalian warna
+                if (bullet.dir == 'left') {
+                    bullet.x -= 10;
+                }
+                if (bullet.dir == 'right') {
+                    bullet.x += 10;
+                }
+                if (bullet.dir == 'up') {
+                    bullet.y -= 10;
+                }
+                if (bullet.dir == 'down') {
+                    bullet.y += 10;
+                }
+                if (bullet.x >= canvas.width || bullet.x <= 0 || bullet.y >= canvas.height || bullet.y <= 0) {
+                    bullets.splice(bullets.indexOf(bullet), 1);
+                }
+                //pemberian perintah ketika perulu menyentuh dinding kanan maka dinding bergeser ke kananC
+                if (bullet.dir == 'right') {
+                    if (bullet.x >= walls['right'].x) {
+                        walls['right'].x = walls['right'].x + walletBackward;
+                        collid = true;
+                    }
+                }
+                //pemberian perintah ketika perulu menyentuh dinding atas maka dinding bergeser ke atas
+                if (bullet.dir == 'up') {
+                    if (bullet.y <= walls['top'].y) {
+                        walls['top'].y = walls['top'].y - walletBackward;
+                        collid = true;
+                    }
+                }
+                //pemberian perintah ketika perulu menyentuh dinding bawah maka dinding bergeser ke bawah
+                if (bullet.dir == 'down') {
+                    if (bullet.y >= walls['bottom'].y) {
+                        walls['bottom'].y = walls['bottom'].y + walletBackward;
+                        collid = true;
+                    }
+                }
+                //pemberian perintah ketika perulu menyentuh dinding kiri maka dinding bergeser ke kiri
+                if (bullet.dir == 'left') {
+                    if (bullet.x <= walls['left'].x) {
+                        walls['left'].x = walls['left'].x - walletBackward;
+                        collid = true;
+                    }
+                }
+                //untuk menambahkan skor
+                if (collid) {
+                    bullets.splice(bullets.indexOf(bullet), 1);
+                    collid = false;
+                    score++;
+                }
+
+
+            }
+        }
+        //function menghapus bullet
+        function removeBullet(index) {
+            bullets.splice(index, 1);
+        }
+        //setiing onjek kotak utama
+        function makeMe() {
+            context.beginPath(); //mulai metode
+            context.rect(me.x, me.y, me.width, me.height); //mengatur ukuran
+            context.fillStyle = "green"; // inisialisasi warna hijau
+            context.fill(); //pemberian warna
+            context.closePath(); //pengembailian ke titik awal
+        }
+        //perhitungan r
+        function rnd(min, max) {
+            var r = Math.round(Math.random() * (max - min) + min);
+            return (r - r % speed);
+        }
+        var wallPoses = ['left', 'right', 'top', 'bottom'];
+        var frame = 0;
+        //mengeksekusi dan menambah kecepatan jika score semakin bertambah
+        (function loop() {
+            requestAnimationFrame(function() {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                makeMe(); //pemanggilan objek utama
+                makeBullet(); //pemanggilan peluru
+                makeWalls(); //pemanmggilan dinding
+                if (score % 50 == 0) {
+                    walletBackward -= 1; //pengurangan jarak dinding setelah ditembak
+                    wallSpeed += 0.1; //penambahan sspeed dinding
+                    score += 1; //penambahan score
+                    console.log(score); //menampilkan score pemain
+                    console.log(wallSpeed) //menampilkan dinding
+                    console.log(walletBackward); //menampilkan dinding ketika terkena peluru
+                }
+                //jika score bertambah kecepatan dinding bertambah
+                if (frame % gameSpeed == 0) {
+                    frame++
+                }
+                loop();
+            })
+        })();
+    </script>
+</body>
+
+</html>

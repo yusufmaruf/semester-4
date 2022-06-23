@@ -1,0 +1,69 @@
+<html lang="en">
+
+<head>
+    <title>FastCoding</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <!--container dibuat untuk memberi ruang yang akan menampung konten -->
+
+    <div class="container">
+        <div class="heading">FastCoding</div>
+        <div class="keterangan">Merupakan game untuk mengukur tingkat akurasi dan kecepatan dalam mengetik</div>
+        <div class="header">
+            <!-- pembuatan timer-->
+            <div class="timer">
+                <div class="header_text">Waktu</div>
+                <div class="curr_time">60s</div>
+            </div>
+        </div>
+        <!-- pembuatan timer-->
+        <form>
+            <label for="input">Silahkan Pilih bahasa :</label>
+            <select name="languange" id="bahasa">
+            <option value="html">HTML</option>
+            <option value="javascript">Javascript</option>
+            <option value="css">CSS</option>
+          </select>
+        </form>
+        <!-- quotees / perintah yang harus ditulis oleh user-->
+        <div class="quote">Klik kolom di bawah untuk memulai game.</div>
+        <!-- text area untuk imputan user-->
+        <textarea class="input_area" placeholder="mulai mengetik di sini..." oninput="processCurrentText()" onfocus="startGame()"></textarea>
+        <!-- Tombol reset ketika user ingin melakukan tes ulang-->
+        <button class="restart_btn" onclick="resetValues()">Restart</button>
+        <div class="keterangan" id="hasilmu">
+            your result
+        </div>
+        <div class="result">
+            <!-- pembuatan teks untuk menampilkan akurasi-->
+            <div class="accuracy">
+                <div class="header_text">Ketepatan(%)</div>
+                <div class="curr_accuracy">100</div>
+            </div>
+            <!-- pembuatan teks untuk menampilkan kecepatan user kata per menit-->
+            <div class="wpm">
+                <div class="header_text">WPM</div>
+                <div class="curr_wpm">100</div>
+            </div>
+            <!-- pembuatan teks untuk menampilkan kecepatan user character per menit-->
+            <div class="cpm">
+                <div class="header_text">CPM</div>
+                <div class="curr_cpm">100</div>
+            </div>
+            <!-- pembuatan teks untuk menampilkan kesalahn tulis user-->
+            <div class="errors">
+                <div class="header_text">Kesalahan</div>
+                <div class="curr_errors">0</div>
+            </div>
+
+        </div>
+    </div>
+    <script src="game.js"></script>
+    <footer>
+        <h3>&copy; Rhizma Elliza putri & Achmad Yusuf Al Ma'ruf </h3>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,412 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI';
+}
+
+
+/*nav */
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: #fafafa;
+}
+
+nav h2 {
+    line-height: 80px;
+    display: inline-block;
+    color: #fafafa;
+    margin-left: 40px;
+}
+
+ul {
+    float: right;
+    margin-right: 40px;
+    list-style: none;
+}
+
+ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+ul li a:hover {
+    color: coral;
+}
+
+label #btn,
+label #close {
+    font-size: 30px;
+    float: right;
+    margin-right: 40px;
+    line-height: 80px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+
+/* header */
+
+header {
+    padding-top: 80px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: #fafafa;
+}
+
+.herotxt {
+    width: 500px;
+    margin-right: 40px;
+}
+
+.herotxt h3 {
+    font-size: 33px;
+    margin-bottom: 10px;
+}
+
+.herotxt h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.herotxt span {
+    color: coral;
+}
+
+.heroimg img {
+    padding: 30px;
+    width: 300px;
+    height: 300px;
+}
+
+#icons {
+    color: #fafafa;
+    width: 42px;
+    height: 42px;
+    padding-right: 10px;
+}
+
+
+/* Pendidikan*/
+
+.pendidikan {
+    text-align: center;
+    background-color: #fafafa;
+    height: 600px;
+    padding-top: 50px;
+}
+
+.cardSchool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pendidikan h2 {
+    margin-top: 80px;
+}
+
+.card {
+    color: black;
+    background-color: white;
+    margin-left: 40px;
+    min-height: 400px;
+    min-width: 300px;
+    max-width: 230px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #000000;
+    padding-top: 20px;
+    font-size: large;
+    margin: 60px;
+}
+
+.card h3 {
+    font-size: 32px;
+    line-height: 40px;
+    padding-top: 50px;
+}
+
+.card h4 {
+    font-size: 24px;
+    padding: 20px;
+}
+
+.card img {
+    width: 160px;
+    height: 160px;
+}
+
+
+/* Jadwal Kuliah */
+
+.kuliah {
+    background-color: black;
+    color: #fafafa;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.kuliah table {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666;
+    background: chocolate;
+    border: 1px solid;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr {
+    text-align: center;
+    padding-left: 15px;
+}
+
+table td {
+    font-size: 20px;
+    padding: 15px 24px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid coral;
+    border-left: 1px solid coral;
+    background: whitesmoke;
+}
+
+table th {
+    font-size: 32px;
+    padding: 15px 35px;
+    border-top: 1px solid coral;
+    border-bottom: 1px solid coral;
+    border-left: 1px solid coral;
+    background: rebeccapurple;
+    color: #fafafa;
+}
+
+
+/*aktivitas*/
+
+.activitas {
+    background-color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.kartu {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardact {
+    color: black;
+    background-color: white;
+    margin-top: 40px;
+    margin-left: 40px;
+    max-width: 300px;
+    min-height: 350px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #000000;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    margin: 60px;
+}
+
+.cardact h2 {
+    font-size: 24px;
+}
+
+.cardact span {
+    font-weight: bold;
+    color: coral;
+}
+
+.card p {
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+
+.imglogo {
+    height: 140px;
+    width: 140px;
+}
+
+.cardact p {
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.cardact img {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.cardact h2 {
+    font-size: 32px;
+    padding: 10px;
+}
+
+.title {
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/*portofolio */
+
+.portofolio {
+    background-color: black;
+    color: #fafafa;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.cardporto {
+    display: flex;
+    box-shadow: 5px 10px 18px #000000;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-top: 80px;
+    box-shadow: 5px 10px 18px #ffffff;
+    min-height: 200px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 90px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.cprt1 img {
+    padding-top: 20px;
+    max-width: 200px;
+    max-height: 200px;
+    padding-right: 30px;
+    justify-content: left;
+}
+
+.portofolio a {
+    text-decoration: none;
+}
+
+.cprt2 {
+    padding: 20px;
+    margin: 30px;
+}
+
+.cprt2 h2 {
+    font-size: 32px;
+    padding-bottom: 20px;
+}
+
+.cprt2 p {
+    font-size: 24px;
+    padding-bottom: 20px;
+}
+
+.cprt2 a {
+    background-color: coral;
+    color: #fafafa;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+}
+
+footer {
+    text-align: center;
+    color: #fafafa;
+    background-color: grey;
+}
+
+@media (max-width:992px) {
+    .herotxt p {
+        font-size: 18px;
+        margin-right: 0;
+        padding: 40px;
+    }
+    label #btn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        margin-right: 0;
+        right: -100%;
+        top: 80px;
+        background-color: #666;
+        text-align: center;
+        transition: .5s;
+    }
+    ul li {
+        display: block;
+        line-height: 10px;
+        margin: 50px 0;
+    }
+    #check:checked~ul {
+        right: 0;
+    }
+    #check :checked~label #btn {
+        display: none;
+    }
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        height: 800px;
+    }
+    .cardSchool {
+        flex-direction: column;
+    }
+    .pendidikan {
+        height: 1700px;
+    }
+    table {
+        width: 100%;
+    }
+    table th {
+        font-size: 10px;
+        padding: 2px 2px;
+    }
+    table td {
+        font-size: 10px;
+        padding: 2px 2px;
+    }
+    .kartu {
+        flex-direction: column;
+    }
+    .cardporto {
+        max-width: 400px;
+        flex-direction: column;
+    }
+}
