@@ -1,0 +1,95 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true
+				}
+			]
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAGBoykvvSyqeVw=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "rekrutmen karyawan",
+			"ownedElements": [
+				{
+					"_type": "UMLUseCaseDiagram",
+					"_id": "AAAAAAGBoykvvSyrn9k=",
+					"_parent": {
+						"$ref": "AAAAAAGBoykvvSyqeVw="
+					},
+					"name": "UseCaseDiagram1",
+					"ownedViews": [
+						{
+							"_type": "UMLFrameView",
+							"_id": "AAAAAAGBoynarC0Hhgk=",
+							"_parent": {
+								"$ref": "AAAAAAGBoykvvSyrn9k="
+							},
+							"model": {
+								"$ref": "AAAAAAGBoykvvSyqeVw="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGBoynarC0If0k=",
+									"_parent": {
+										"$ref": "AAAAAAGBoynarC0Hhgk="
+									},
+									"font": "Arial;13;0",
+									"left": 167.9599609375,
+									"top": 77,
+									"width": 118.76806640625,
+									"height": 13,
+									"text": "rekrutmen karyawan"
+								},
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGBoynarC0JkX0=",
+									"_parent": {
+										"$ref": "AAAAAAGBoynarC0Hhgk="
+									},
+									"font": "Arial;13;1",
+									"left": 141,
+									"top": 77,
+									"width": 21.9599609375,
+									"height": 13,
+									"text": "pkg"
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 136,
+							"top": 72,
+							"width": 713,
+							"height": 681,
+							"nameLabel": {
+								"$ref": "AAAAAAGBoynarC0If0k="
+							},
+							"frameTypeLabel": {
+								"$ref": "AAAAAAGBoynarC0JkX0="
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
